@@ -24,7 +24,42 @@ const mul = (...nums) => {
         product *= nums[i];
     }
 }
-
+const min = (...nums) => {
+    let smallest = 0;
+    for (num of nums) {
+        smallest = smallest < num ? smallest : num;
+    }
+}
+const max = (...nums) => {
+    let biggest = 0;
+    for (num of nums) {
+        biggest = biggest < num ? biggest : num;
+    }
+}
+const addRecurse = (...nums) => {
+    const goRecurse = (sum, i) => {
+        if (i === nums.length) {
+            return sum;
+        }
+        else {
+            sum += nums[i];
+            return goRecurse(sum, i + 1);
+        }
+    }
+    return goRecurse(0, 0);
+}
+const mulRecurse = (...nums) => {
+    const goRecurse = (product, i) => {
+        if (i === nums.length) {
+            return product;
+        }
+        else {
+            product *= nums[i];
+            return goRecurse(product, i + 1);
+        }
+    }
+    return goRecurse(1, 0);
+}
 
 module.exports = {
     identity,
@@ -36,10 +71,10 @@ module.exports = {
     add,
     sub,
     mul,
-    // min,
-    // max,
-    // addRecurse,
-    // mulRecurse,
+    min,
+    max,
+    addRecurse,
+    mulRecurse,
     // minRecurse,
     // maxRecurse,
     // not,
